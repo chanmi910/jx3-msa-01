@@ -1,18 +1,9 @@
-# apiVersion: config.lighthouse.jenkins-x.io/v1alpha1
-# kind: TriggerConfig
-# spec:
-#   presubmits:
-#   - name: pr
-#     context: "pr"
-#     always_run: true
-#     optional: false
-#     source: "pullrequest.yaml"
 apiVersion: config.lighthouse.jenkins-x.io/v1alpha1
 kind: TriggerConfig
 spec:
   presubmits:
-  - name: verify
-    context: "verify"
+  - name: pr
+    context: "pr"
     always_run: true
     optional: false
     source: "pullrequest.yaml"
@@ -30,7 +21,7 @@ spec:
             - do-not-merge/work-in-progress
             - needs-ok-to-test
             - needs-rebase
-        review_approved_required: false
+        review_approved_required: true
       - excludedBranches: { }
         included_branches: { }
         labels:
@@ -45,8 +36,7 @@ spec:
             - do-not-merge/work-in-progress
             - needs-ok-to-test
             - needs-rebase
-        review_approved_required: false
-    
+        review_approved_required: true
   postsubmits:
   - name: release
     context: "release"
