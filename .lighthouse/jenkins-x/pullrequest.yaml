@@ -21,20 +21,22 @@ spec:
         - image: uses:jenkins-x/jx3-pipeline-catalog/tasks/git-clone/git-clone-pr.yaml@versionStream
           name: ""
           resources: {}
-        - name: jx-variables
-          resources:
-            # override requests for the pod here
-            requests:
-              cpu: 400m
-              memory: 512Mi
-        - name: build-gradle-build
-          resources: {}
-        - name: check-registry
-          resources: {}
-        - name: build-container-build
-          resources: {}
-        - name: promote-jx-preview
-          resources: {}
+        - name: make-pr
+          resources: {}          
+#         - name: jx-variables
+#           resources:
+#             # override requests for the pod here
+#             requests:
+#               cpu: 400m
+#               memory: 512Mi
+#         - name: build-gradle-build
+#           resources: {}
+#         - name: check-registry
+#           resources: {}
+#         - name: build-container-build
+#           resources: {}
+#         - name: promote-jx-preview
+#           resources: {}
   podTemplate: {}
   serviceAccountName: tekton-bot
   timeout: 12h0m0s
